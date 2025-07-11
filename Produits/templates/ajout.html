@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajout des données</title>
+</head>
+<body>
+<div>
+<form action= "" method="POST">
+
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type ="submit"> Enregistrer</button>
+</form>
+
+
+</div>
+
+
+</body>
+</html>

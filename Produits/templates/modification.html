@@ -1,0 +1,95 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modification  des données</title>
+  <link rel="stylesheet" href="{% static 'style - Copie.css' %}">
+</head>
+<body>
+  <div class="container-fluid px-1 py-5 mx-auto">
+    <div class="row d-flex justify-content-center">
+      <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
+        <h3>Modification des produits</h3>
+        <p class="blue-text">Veuillez noter que tous les champs sont obligatoires</p>
+
+        <div class="card">
+          <h5 class="text-center mb-4">Formulaire de produit</h5>
+
+          <form class="form-card" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            
+            <div class="row justify-content-between text-left">
+              <div class="form-group col-sm-6 flex-column d-flex">
+                <label class="form-control-label px-3">Nom du produit<span class="text-danger"> *</span></label>
+
+                {{form.name}}
+
+                
+
+              <div class="form-group col-sm-6 flex-column d-flex">
+  <label class="form-control-label px-3">Catégorie<span class="text-danger"> *</span></label>
+  <select name="category" required class="form-control">
+  <option value="">-- Choisissez une catégorie --</option>
+  {% for cat in categories %}
+    <option value="{{ cat.pk }}">{{ cat.name }}</option>
+  {% endfor %}
+</select>
+  {% if errors.category %}
+    <div class="error" style="color:red;">{{ errors.category }}</div>
+  {% endif %}
+</div>
+
+
+
+            <div class="row justify-content-between text-left">
+              <div class="form-group col-sm-6 flex-column d-flex">
+                <label class="form-control-label px-3">Prix<span class="text-danger"> *</span></label>
+                {{form.price}}
+
+                
+
+              <div class="form-group col-sm-6 flex-column d-flex">
+                <label class="form-control-label px-3">Quantité<span class="text-danger"> *</span></label>
+                {{form.quantite}}
+
+                
+
+            <div class="row justify-content-between text-left">
+              <div class="form-group col-sm-6 flex-column d-flex">
+                <label class="form-control-label px-3">Date d'expiration<span class="text-danger"> *</span></label>
+                {{form.date_expiration}}
+
+                
+
+            <div class="row justify-content-between text-left">
+              <div class="form-group col-12 flex-column d-flex">
+                <label class="form-control-label px-3">Description<span class="text-danger"> *</span></label>
+                {{form.description}}
+
+                
+
+            <div class="row justify-content-between text-left">
+              <div class="form-group col-12 flex-column d-flex">
+                <label class="form-control-label px-3">Image du produit<span class="text-danger"> *</span></label>
+                {{form.image}}
+
+                
+
+            <div class="row justify-content-end">
+              <div class="form-group col-sm-6">
+                <button type="submit" class="btn btn-primary btn-block">Ajouter le produit</button>
+              </div>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="{% static 'script.js' %}"></script>
+</body>
+</html>

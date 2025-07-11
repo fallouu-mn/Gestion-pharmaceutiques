@@ -27,7 +27,8 @@ SECRET_KEY = 'django-insecure-pch(2&sv!nos2j(#0_)z^ux-1!e=bg+6v&p$1feiclo(_xhsp-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['gestion-pharmaceutiques.onrender.com', 'localhost', '127.0.0.1']
+
 
 
 # Application definition
